@@ -27,7 +27,7 @@ well.)}
 \item{...}{Additional parameters passed to \code{\link[ggplot2:ggtheme]{ggplot2::theme_classic()}}.}
 }
 \value{
-
+\verb{[ggplot::theme()]} object.
 }
 \description{
 Bare bones theme (based on \code{\link[ggplot2:ggtheme]{ggplot2::theme_classic()}}) for plotting

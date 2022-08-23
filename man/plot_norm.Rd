@@ -89,7 +89,7 @@ smoothness of the curve). Note: higher values will increase processor time
 and increase the size of image file.}
 }
 \value{
-A \code{ggplot} object.
+A \verb{[ggplot2::ggplot()]} object.
 }
 \description{
 \code{\link[=plot_norm]{plot_norm()}} produces a ggplot of the normal distribution (generated

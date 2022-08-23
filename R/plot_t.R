@@ -12,7 +12,7 @@
 #' @param n Numeric scalar. Length of sequence for the range of `x` values to
 #'   generate.
 #'
-#' @return
+#' @return A `[ggplot2::ggplot()]` object.
 #' @export
 #'
 #' @examples

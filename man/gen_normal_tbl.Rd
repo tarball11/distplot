@@ -33,7 +33,7 @@ of \code{x} (expressed as proportion)? Defaults to 10\% (0.1).}
 generate.}
 }
 \value{
-
+\verb{[tibble::tibble()]} object.
 }
 \description{
 Given a mean and standard deviation value, generates a \code{tibble} with a range

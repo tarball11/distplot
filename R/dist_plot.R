@@ -15,7 +15,7 @@
 #'   (If set to `FALSE`, recommend setting `x_ticks` to `FALSE` as well.)
 #' @param ... Additional parameters passed to [ggplot2::theme_classic()].
 #'
-#' @return
+#' @return `[ggplot::theme()]` object.
 #' @export
 #'
 #' @examples

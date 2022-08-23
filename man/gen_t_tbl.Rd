@@ -20,7 +20,7 @@ of \code{x} (expressed as proportion)? Defaults to 10\% (0.1).}
 generate.}
 }
 \value{
-
+A \verb{[ggplot2::ggplot()]} object.
 }
 \description{
 Given degrees of freedom, generates a \code{tibble} with a range of values of \code{x}

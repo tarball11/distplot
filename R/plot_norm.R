@@ -16,7 +16,7 @@
 #' @param n Numeric scalar. Length of sequence for the range of `x` values to
 #'   generate.
 #'
-#' @return
+#' @return `[tibble::tibble()]` object.
 #' @export
 #'
 #' @examples
@@ -90,7 +90,7 @@ gen_normal_tbl <- function(M = 0,
 #'   smoothness of the curve). Note: higher values will increase processor time
 #'   and increase the size of image file.
 #'
-#' @return A `ggplot` object.
+#' @return A `[ggplot2::ggplot()]` object.
 #'
 #' @seealso [gen_normal_tbl()], [distribution_thm()], [distribution_scaling()], [plot_dist()], [add_dist()]
 #'  @export
