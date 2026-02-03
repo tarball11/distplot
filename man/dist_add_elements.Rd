@@ -10,7 +10,7 @@
 dist_add_elements(
   data = NULL,
   linetype = "solid",
-  size = 1,
+  linewidth = 1,
   color = "black",
   shade_type = NULL,
   shade_limits = NULL,
@@ -18,12 +18,18 @@ dist_add_elements(
   shade_alpha = 0.7,
   seg_x = NULL,
   seg_linetype = "solid",
-  seg_size = 1,
+  seg_linewidth = 1,
   seg_color = "black",
   ...
 )
 
-dist_add_curve(data = NULL, linetype = "solid", size = 1, color = "black", ...)
+dist_add_curve(
+  data = NULL,
+  linetype = "solid",
+  linewidth = 1,
+  color = "black",
+  ...
+)
 
 dist_add_shading(
   mapping = ggplot2::aes(x = x, y = y),
@@ -40,7 +46,7 @@ dist_add_segment(
   data = NULL,
   seg_x,
   seg_linetype = "solid",
-  seg_size = 1,
+  seg_linewidth = 1,
   seg_color = "black",
   ...
 )
@@ -53,7 +59,7 @@ the x-axis, and the \code{y} column contains the density value for that value of
 \code{x}. If not provided, will use the data already associated with the plot
 object.}
 
-\item{linetype, size, color}{Parameters passed to \code{\link[ggplot2:geom_path]{ggplot2::geom_line()}} to
+\item{linetype, linewidth, color}{Parameters passed to \code{\link[ggplot2:geom_path]{ggplot2::geom_line()}} to
 draw the curve (defaults to a solid black line).}
 
 \item{shade_type}{Character scalar. Type of shading to apply to a specific
@@ -71,7 +77,7 @@ shade the area under the curve. (defaults to red with some translucency).}
 \item{seg_x}{Numeric vector of \code{x} values where the segments should be drawn.
 The segments will go from zero (x-axis) to the height of the density curve.}
 
-\item{seg_linetype, seg_size, seg_color}{Parameters passed to
+\item{seg_linetype, seg_linewidth, seg_color}{Parameters passed to
 \code{\link[ggplot2:geom_path]{ggplot2::geom_line()}} to draw the line segments (defaults to a solid black
 line).}
 
