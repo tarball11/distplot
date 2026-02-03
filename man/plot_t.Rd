@@ -11,7 +11,7 @@ plot_t(
   x_max = 4,
   x_breaks = seq(x_min, x_max, by = 1),
   linetype = "solid",
-  size = 1,
+  linewidth = 1,
   color = "black",
   shade_type = NULL,
   shade_limits = NULL,
@@ -19,7 +19,7 @@ plot_t(
   shade_alpha = 0.7,
   seg_x = NULL,
   seg_linetype = "solid",
-  seg_size = 1,
+  seg_linewidth = 1,
   seg_color = "black",
   n = 1001
 )
@@ -30,7 +30,7 @@ add_t(
   x_max = 4,
   x_breaks = seq(x_min, x_max, by = 1),
   linetype = "solid",
-  size = 1,
+  linewidth = 1,
   color = "black",
   shade_type = NULL,
   shade_limits = NULL,
@@ -38,7 +38,7 @@ add_t(
   shade_alpha = 0.7,
   seg_x = NULL,
   seg_linetype = "solid",
-  seg_size = 1,
+  seg_linewidth = 1,
   seg_color = "black",
   n = 1001
 )
@@ -54,7 +54,7 @@ add_t(
 not provided, inferred to be integers ranging from x_min to x_max. Set to
 \code{NULL} to remove values.}
 
-\item{linetype, size, color}{Parameters passed to \code{\link[ggplot2:geom_path]{ggplot2::geom_line()}} to
+\item{linetype, linewidth, color}{Parameters passed to \code{\link[ggplot2:geom_path]{ggplot2::geom_line()}} to
 draw the curve (defaults to a solid black line).}
 
 \item{shade_type}{Character scalar. Type of shading to apply to a specific
@@ -72,7 +72,7 @@ shade the area under the curve. (defaults to red with some translucency).}
 \item{seg_x}{Numeric vector of \code{x} values where the segments should be drawn.
 The segments will go from zero (x-axis) to the height of the density curve.}
 
-\item{seg_linetype, seg_size, seg_color}{Parameters passed to
+\item{seg_linetype, seg_linewidth, seg_color}{Parameters passed to
 \code{\link[ggplot2:geom_path]{ggplot2::geom_line()}} to draw the line segments (defaults to a solid black
 line).}
 
@@ -104,7 +104,7 @@ plot_t(df = 25)
 # Can easily add shading and line segments (e.g., shading the tails):
 lims = qt(df = 25, p = c(0.025, 0.975))
 p<- plot_t(df = 25, shade_type = 'tails', shade_limits = lims, shade_fill = "red",
-seg_x = lims, seg_size = 0.75, seg_linetype = 'dashed')
+seg_x = lims, seg_linewidth = 0.75, seg_linetype = 'dashed')
 p
 
 # You shade multiple areas of the same distribution by adding an individual

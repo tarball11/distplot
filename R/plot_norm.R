@@ -40,7 +40,7 @@ gen_normal_tbl <- function(M = 0,
 	stopifnot(is.numeric(padding), padding < 1, padding >= 0)
 	stopifnot(is.numeric(n), n >= 10)
 
-	tibble::tibble(x = seq(x_min*(1 + padding), x_max*(1 + padding), length.out=n),
+	tibble::tibble(x = seq((x_min - padding), (x_max + padding), length.out=n),
 								 y = stats::dnorm(x = x, mean = M, sd = SD))
 }
 
@@ -70,7 +70,7 @@ gen_normal_tbl <- function(M = 0,
 #' @param n Numeric scalar. Number of points along the curve to draw (i.e., the
 #'   smoothness of the curve). Note: higher values will increase processor time
 #'   and increase the size of image file.
-#' @param linetype,size,color Parameters passed to [ggplot2::geom_line()] to
+#' @param linetype,linewidth,color Parameters passed to [ggplot2::geom_line()] to
 #'   draw the curve (defaults to a solid black line).
 #' @param shade_type Character scalar. Type of shading to apply to a specific
 #'   area under the curve. Options are `below`, `above`, `between`, `tails`. If
@@ -83,7 +83,7 @@ gen_normal_tbl <- function(M = 0,
 #'   shade the area under the curve. (defaults to red with some translucency).
 #' @param seg_x Numeric vector of `x` values where the segments should be drawn.
 #'   The segments will go from zero (x-axis) to the height of the density curve.
-#' @param seg_linetype,seg_size,seg_color Parameters passed to
+#' @param seg_linetype,seg_linewidth,seg_color Parameters passed to
 #'   [ggplot2::geom_line()] to draw the line segments (defaults to a solid black
 #'   line).
 #' @param n Numeric scalar. Number of points along the curve to draw (i.e., the
@@ -93,7 +93,8 @@ gen_normal_tbl <- function(M = 0,
 #' @return A `[ggplot2::ggplot()]` object.
 #'
 #' @seealso [gen_normal_tbl()], [distribution_thm()], [distribution_scaling()], [plot_dist()], [add_dist()]
-#'  @export
+#'
+#' @export
 #'
 #' @examples
 #'
@@ -103,7 +104,7 @@ gen_normal_tbl <- function(M = 0,
 #' # Can easily add shading and line segments (e.g., shading the tails):
 #' lims = qnorm(p = c(0.025, 0.975))
 #' p<- plot_norm(shade_type = 'tails', shade_limits = lims, shade_fill = "red",
-#'               seg_x = lims, seg_size = 0.75, seg_linetype = 'dashed')
+#'               seg_x = lims, seg_linewidth = 0.75, seg_linetype = 'dashed')
 #' p
 #'
 #' # You shade multiple areas of the same distribution by adding an individual
@@ -146,7 +147,7 @@ plot_norm <- function(M = 0,
 											x_max = M + (SD * sd_range),
 											x_breaks = seq(x_min, x_max, by=SD),
 											linetype = "solid",
-											size = 1,
+											linewidth = 1,
 											color = "black",
 											shade_type = NULL,
 											shade_limits = NULL,
@@ -154,7 +155,7 @@ plot_norm <- function(M = 0,
 											shade_alpha = 0.7,
 											seg_x = NULL,
 											seg_linetype = "solid",
-											seg_size = 1,
+											seg_linewidth = 1,
 											seg_color = "black",
 											n = 1001) {
 
@@ -181,7 +182,7 @@ plot_norm <- function(M = 0,
 						x_max = x_max,
 						x_breaks = x_breaks,
 						linetype = linetype,
-						size = size,
+						linewidth = linewidth,
 						color = color,
 						shade_type = shade_type,
 						shade_limits = shade_limits,
@@ -189,7 +190,7 @@ plot_norm <- function(M = 0,
 						shade_alpha = shade_alpha,
 						seg_x = seg_x,
 						seg_linetype = seg_linetype,
-						seg_size = seg_size,
+						seg_linewidth = seg_linewidth,
 						seg_color = seg_color)
 
 }
@@ -204,7 +205,7 @@ add_normal <- function(M = 0,
 											 x_min = M - (SD * sd_range),
 											 x_max = M + (SD * sd_range),
 											 linetype = "solid",
-											 size = 1,
+											 linewidth = 1,
 											 color = "black",
 											 shade_type = NULL,
 											 shade_limits = NULL,
@@ -212,7 +213,7 @@ add_normal <- function(M = 0,
 											 shade_alpha = 0.7,
 											 seg_x = NULL,
 											 seg_linetype = "solid",
-											 seg_size = 1,
+											 seg_linewidth = 1,
 											 seg_color = "black",
 											 n = 1001) {
 
@@ -235,7 +236,7 @@ add_normal <- function(M = 0,
 					 x_max = x_max,
 					 x_breaks = x_breaks,
 					 linetype = linetype,
-					 size = size,
+					 linewidth = linewidth,
 					 color = color,
 					 shade_type = shade_type,
 					 shade_limits = shade_limits,
@@ -243,6 +244,6 @@ add_normal <- function(M = 0,
 					 shade_alpha = shade_alpha,
 					 seg_x = seg_x,
 					 seg_linetype = seg_linetype,
-					 seg_size = seg_size,
+					 seg_linewidth = seg_linewidth,
 					 seg_color = seg_color)
 }
